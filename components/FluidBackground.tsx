@@ -59,7 +59,7 @@ const FluidBackground: React.FC = () => {
 
       {/* Blob 1: Mint - Optimized Blur (60px -> 40px) and Animation Speed */}
       <motion.div
-        className="absolute top-[-10%] left-[-10%] w-[90vw] h-[90vw] bg-[#a8fbd3] rounded-full mix-blend-screen filter blur-[40px] opacity-30 will-change-transform"
+        className="absolute top-[-10%] left-[-10%] w-[90vw] h-[90vw] mix-blend-screen will-change-transform pointer-events-none"
         animate={{
           x: [0, 50, -25, 0],
           y: [0, -25, 25, 0],
@@ -69,12 +69,15 @@ const FluidBackground: React.FC = () => {
           repeat: Infinity,
           ease: "linear"
         }}
-        style={{ transform: 'translateZ(0)' }}
+        style={{ 
+          background: "radial-gradient(circle at center, rgba(168, 251, 211, 0.4) 0%, transparent 50%)",
+          transform: 'translateZ(0)' 
+        }}
       />
 
       {/* Blob 2: Teal */}
       <motion.div
-        className="absolute top-[20%] right-[-20%] w-[100vw] h-[80vw] bg-[#4fb7b3] rounded-full mix-blend-screen filter blur-[40px] opacity-20 will-change-transform"
+        className="absolute top-[20%] right-[-20%] w-[100vw] h-[80vw] mix-blend-screen will-change-transform pointer-events-none"
         animate={{
           x: [0, -50, 25, 0],
           y: [0, 50, -25, 0],
@@ -84,12 +87,15 @@ const FluidBackground: React.FC = () => {
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        style={{ transform: 'translateZ(0)' }}
+        style={{ 
+          background: "radial-gradient(circle at center, rgba(79, 183, 179, 0.3) 0%, transparent 50%)",
+          transform: 'translateZ(0)' 
+        }}
       />
 
       {/* Blob 3: Periwinkle */}
       <motion.div
-        className="absolute bottom-[-20%] left-[20%] w-[80vw] h-[80vw] bg-[#637ab9] rounded-full mix-blend-screen filter blur-[40px] opacity-20 will-change-transform"
+        className="absolute bottom-[-20%] left-[20%] w-[80vw] h-[80vw] mix-blend-screen will-change-transform pointer-events-none"
         animate={{
           x: [0, 75, -75, 0],
           y: [0, -50, 50, 0],
@@ -99,7 +105,10 @@ const FluidBackground: React.FC = () => {
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        style={{ transform: 'translateZ(0)' }}
+        style={{ 
+          background: "radial-gradient(circle at center, rgba(99, 122, 185, 0.3) 0%, transparent 50%)",
+          transform: 'translateZ(0)' 
+        }}
       />
 
       {/* Static Grain Overlay */}
