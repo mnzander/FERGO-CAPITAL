@@ -113,13 +113,16 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen text-white selection:bg-[#4fb7b3] selection:text-black cursor-auto md:cursor-none overflow-x-hidden">
+    <div className="relative min-h-screen text-[#0f172a] selection:bg-[#2563eb] selection:text-white cursor-auto md:cursor-none overflow-x-hidden">
       <CustomCursor />
       <FluidBackground />
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 md:px-8 py-6 mix-blend-difference">
-        <div className="font-heading text-xl md:text-2xl font-bold tracking-tighter text-white cursor-default z-50">FERGO</div>
+      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 md:px-8 py-6">
+        <div className="font-heading text-xl md:text-2xl font-bold tracking-tighter text-[#0f172a] cursor-default z-50 flex items-center gap-1.5 md:gap-2">
+          FERGO
+          <img src="/images/FERGO_LOGO.png" alt="FERGO Logo" className="w-8 h-8 md:w-12 md:h-12 object-contain drop-shadow-sm" />
+        </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-10 text-sm font-bold tracking-widest uppercase">
@@ -133,8 +136,8 @@ const App: React.FC = () => {
               onClick={() => scrollToSection(item.id)}
               className={`transition-all duration-300 cursor-pointer bg-transparent border-none ${
                 activeSection === item.id 
-                  ? 'text-white [text-shadow:0_0_15px_rgba(255,255,255,1),0_0_30px_rgba(255,255,255,0.8)]' 
-                  : 'text-white/50 hover:text-white hover:[text-shadow:0_0_10px_rgba(255,255,255,0.8)]'
+                  ? 'text-[#2563eb] [text-shadow:0_0_15px_rgba(37,99,235,0.4),0_0_30px_rgba(37,99,235,0.2)]' 
+                  : 'text-slate-500 hover:text-[#2563eb] hover:[text-shadow:0_0_10px_rgba(37,99,235,0.3)]'
               }`}
               data-hover="true"
             >
@@ -144,7 +147,7 @@ const App: React.FC = () => {
         </div>
         <button
           onClick={() => scrollToSection('contacto')}
-          className="hidden md:inline-block border border-white px-8 py-3 text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 text-white cursor-pointer bg-transparent"
+          className="hidden md:inline-block border border-slate-300 px-8 py-3 text-xs font-bold tracking-widest uppercase hover:bg-[#2563eb] hover:text-white hover:border-[#2563eb] transition-all duration-300 text-[#0f172a] cursor-pointer bg-white/50 backdrop-blur-sm"
           data-hover="true"
         >
           Contactar
@@ -152,7 +155,7 @@ const App: React.FC = () => {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-white z-50 relative w-10 h-10 flex items-center justify-center"
+          className="md:hidden text-[#0f172a] z-50 relative w-10 h-10 flex items-center justify-center"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X /> : <Menu />}
@@ -166,7 +169,7 @@ const App: React.FC = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-30 bg-[#31326f]/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden"
+            className="fixed inset-0 z-30 bg-white/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden"
           >
             {[
               { id: 'proyectos', label: 'Proyectos' },
@@ -225,10 +228,10 @@ const App: React.FC = () => {
                 hidden: { opacity: 0, y: 40, filter: "blur(15px)" },
                 show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { type: "spring", stiffness: 70, damping: 20 } }
               }}
-              className="flex items-center gap-3 md:gap-6 text-xs md:text-base font-mono text-[#a8fbd3] tracking-[0.2em] md:tracking-[0.3em] uppercase mb-4 bg-black/40 px-4 py-2 rounded-full"
+              className="flex items-center gap-3 md:gap-6 text-xs md:text-base font-mono text-[#2563eb] tracking-[0.2em] md:tracking-[0.3em] uppercase mb-4 bg-slate-100/60 px-4 py-2 rounded-full"
             >
               <span>Nagore Fernández</span>
-              <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#4fb7b3] rounded-full animate-pulse" />
+              <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#2563eb] rounded-full animate-pulse" />
               <span>Strategy & Capital</span>
             </motion.div>
 
@@ -262,7 +265,7 @@ const App: React.FC = () => {
                 hidden: { scaleX: 0, opacity: 0 },
                 show: { scaleX: 1, opacity: 1, transition: { duration: 1.5, ease: "circOut" } }
               }}
-              className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-white/50 to-transparent mt-4 md:mt-8 mb-6 md:mb-8 origin-center"
+              className="w-full max-w-md h-[2px] bg-gradient-to-r from-transparent via-[#2563eb]/70 to-transparent mt-4 md:mt-8 mb-6 md:mb-8 origin-center"
             />
 
             <motion.p
@@ -270,7 +273,7 @@ const App: React.FC = () => {
                 hidden: { opacity: 0, y: 40, filter: "blur(15px)" },
                 show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { type: "spring", stiffness: 70, damping: 20 } }
               }}
-              className="text-base md:text-2xl font-light max-w-xl mx-auto text-white/90 leading-relaxed drop-shadow-lg px-4"
+              className="text-base md:text-2xl font-light max-w-xl mx-auto text-slate-700 leading-relaxed drop-shadow-lg px-4"
             >
               Impulsando el futuro a través de la inversión estratégica
             </motion.p>
@@ -278,7 +281,7 @@ const App: React.FC = () => {
         </motion.div>
 
         {/* MARQUEE */}
-        <div className="absolute bottom-12 md:bottom-16 left-0 w-full py-4 md:py-6 bg-white text-black z-20 overflow-hidden border-y-4 border-black shadow-[0_0_40px_rgba(255,255,255,0.4)]">
+        <div className="absolute bottom-12 md:bottom-16 left-0 w-full py-4 md:py-6 bg-white text-black z-20 overflow-hidden border-y border-slate-200 shadow-[0_0_40px_rgba(0,0,0,0.05)]">
           <motion.div
             className="flex w-fit will-change-transform"
             animate={{ x: "-50%" }}
@@ -303,12 +306,12 @@ const App: React.FC = () => {
       <section id="proyectos" className="relative z-10 py-20 md:py-32">
         <div className="max-w-[1600px] mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 px-4">
-            <h2 className="text-5xl md:text-8xl font-heading font-bold uppercase leading-[0.9] drop-shadow-lg break-words w-full md:w-auto text-transparent bg-clip-text bg-gradient-to-r from-[#a8fbd3] to-[#4fb7b3]">
+            <h2 className="text-5xl md:text-8xl font-heading font-bold uppercase leading-[0.9] drop-shadow-sm break-words w-full md:w-auto text-transparent bg-clip-text bg-gradient-to-r from-[#2563eb] to-[#1d4ed8]">
               Proyectos
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-white/10 bg-black/20 backdrop-blur-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-slate-200 bg-white/40 backdrop-blur-sm">
             {PROJECTS.map((project) => (
               <ProjectCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
             ))}
@@ -317,17 +320,17 @@ const App: React.FC = () => {
       </section>
 
       {/* ABOUT SECTION */}
-      <section id="sobre-nagore" className="relative z-10 py-20 md:py-32 bg-black/20 backdrop-blur-sm border-t border-white/10 overflow-hidden">
+      <section id="sobre-nagore" className="relative z-10 py-20 md:py-32 bg-slate-50/60 backdrop-blur-sm border-t border-slate-200 overflow-hidden">
         {/* Decorative blurred circle */}
-        <div className="absolute top-1/2 right-[-20%] w-[50vw] h-[50vw] pointer-events-none will-change-transform" style={{ background: 'radial-gradient(circle at center, rgba(79, 183, 179, 0.2) 0%, transparent 60%)', transform: 'translateZ(0)' }} />
+        <div className="absolute top-1/2 right-[-20%] w-[50vw] h-[50vw] pointer-events-none will-change-transform" style={{ background: 'radial-gradient(circle at center, rgba(37, 99, 235, 0.05) 0%, transparent 60%)', transform: 'translateZ(0)' }} />
 
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-center">
             <div className="lg:col-span-6 order-2 lg:order-1">
-              <h2 className="text-4xl md:text-7xl font-heading font-bold mb-6 md:mb-8 leading-tight">
+              <h2 className="text-4xl md:text-7xl font-heading font-bold mb-6 md:mb-8 leading-tight text-[#0f172a]">
                 Sobre <br /> <GradientText text="NAGORE" className="text-5xl md:text-8xl" />
               </h2>
-              <p className="text-lg md:text-xl text-gray-200 mb-8 md:mb-12 font-light leading-relaxed drop-shadow-md">
+              <p className="text-lg md:text-xl text-slate-600 mb-8 md:mb-12 font-light leading-relaxed drop-shadow-sm">
                 Nagore Fernández fusiona la visión estratégica con una ejecución impecable en el mundo del capital y la tecnología. Con una trayectoria enfocada en el crecimiento sostenible y la innovación digital en FERGO CAPITAL.
               </p>
 
@@ -341,12 +344,12 @@ const App: React.FC = () => {
                     key={i}
                     className="flex items-start gap-6"
                   >
-                    <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/5">
-                      <feature.icon className="w-6 h-6 text-white" />
+                    <div className="p-4 rounded-2xl bg-blue-50 border border-blue-100">
+                      <feature.icon className="w-6 h-6 text-[#2563eb]" />
                     </div>
                     <div>
-                      <h4 className="text-lg md:text-xl font-bold mb-1 md:mb-2 font-heading">{feature.title}</h4>
-                      <p className="text-sm text-gray-300">{feature.desc}</p>
+                      <h4 className="text-lg md:text-xl font-bold mb-1 md:mb-2 font-heading text-[#0f172a]">{feature.title}</h4>
+                      <p className="text-sm text-slate-500">{feature.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -354,14 +357,14 @@ const App: React.FC = () => {
             </div>
 
             <div className="lg:col-span-6 relative h-[400px] md:h-[600px] w-full order-1 lg:order-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#637ab9] to-[#4fb7b3] rounded-3xl rotate-3 opacity-30 blur-xl" />
-              <div className="relative h-full w-full rounded-3xl overflow-hidden border border-white/10 group shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f6] to-[#1d4ed8] rounded-3xl rotate-3 opacity-20 blur-xl" />
+              <div className="relative h-full w-full rounded-3xl overflow-hidden border border-slate-200 group shadow-2xl">
                 <img
                   src="/images/nagoresession.jpeg"
                   alt="Nagore Fernández Portrait"
                   className="h-full w-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 will-change-transform"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-80" />
 
                 <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10">
                   <div className="text-5xl md:text-8xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/0 opacity-50">
@@ -378,22 +381,22 @@ const App: React.FC = () => {
       </section>
 
       {/* CONTACT SECTION */}
-      <section id="contacto" className="relative z-10 py-20 md:py-32 px-4 md:px-6 bg-black/30 backdrop-blur-lg">
+      <section id="contacto" className="relative z-10 py-20 md:py-32 px-4 md:px-6 bg-slate-50/80 border-t border-slate-200 backdrop-blur-lg">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 md:mb-20">
-            <h2 className="text-5xl md:text-9xl font-heading font-bold opacity-20 text-white">
+            <h2 className="text-5xl md:text-9xl font-heading font-bold opacity-10 text-[#0f172a]">
               CONTACTO
             </h2>
-            <p className="text-[#a8fbd3] font-mono uppercase tracking-widest -mt-3 md:-mt-8 relative z-10 text-sm md:text-base">
+            <p className="text-[#2563eb] font-mono uppercase tracking-widest -mt-3 md:-mt-8 relative z-10 text-sm md:text-base">
               Conectemos para el próximo gran paso
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { name: 'LinkedIn', value: 'Nagore Fernández', icon: Linkedin, link: 'https://es.linkedin.com/in/nagore-f-a53930165', color: 'teal', accent: 'bg-[#4fb7b3]/10 border-[#4fb7b3]/50' },
-              { name: 'Email', value: 'n.fernandez@fergocapital.com', icon: Mail, link: 'mailto:n.fernandez@fergocapital.com', color: 'mint', accent: 'bg-[#a8fbd3]/10 border-[#a8fbd3]/50' },
-              { name: 'Teléfono', value: '944 43 82 93', icon: Smartphone, link: 'tel:+34944438293', color: 'periwinkle', accent: 'bg-[#637ab9]/10 border-[#637ab9]/50' },
+              { name: 'LinkedIn', value: 'Nagore Fernández', icon: Linkedin, link: 'https://es.linkedin.com/in/nagore-f-a53930165', color: 'teal', accent: 'bg-white border-slate-200' },
+              { name: 'Email', value: 'n.fernandez@fergocapital.com', icon: Mail, link: 'mailto:n.fernandez@fergocapital.com', color: 'mint', accent: 'bg-white border-slate-200' },
+              { name: 'Teléfono', value: '944 43 82 93', icon: Smartphone, link: 'tel:+34944438293', color: 'periwinkle', accent: 'bg-white border-slate-200' },
             ].map((contact, i) => (
               <motion.a
                 key={i}
@@ -401,17 +404,17 @@ const App: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -20 }}
-                className={`relative p-8 md:p-10 border border-white/10 backdrop-blur-md flex flex-col items-center text-center transition-colors duration-300 ${contact.accent} will-change-transform`}
+                className={`relative p-8 md:p-10 border shadow-sm flex flex-col items-center text-center transition-colors duration-300 ${contact.accent} will-change-transform`}
                 data-hover="true"
               >
-                <div className="p-6 rounded-full bg-white/5 mb-6">
-                  <contact.icon className="w-8 h-8 text-white" />
+                <div className="p-6 rounded-full bg-blue-50 mb-6">
+                  <contact.icon className="w-8 h-8 text-[#2563eb]" />
                 </div>
-                <h3 className="text-2xl font-heading font-bold mb-4 text-white uppercase">{contact.name}</h3>
-                <p className={`text-lg font-bold break-all ${contact.color === 'white' ? 'text-white' : contact.color === 'teal' ? 'text-[#4fb7b3]' : contact.color === 'mint' ? 'text-[#a8fbd3]' : 'text-[#637ab9]'}`}>
+                <h3 className="text-2xl font-heading font-bold mb-4 text-[#0f172a] uppercase">{contact.name}</h3>
+                <p className="text-lg font-bold break-all text-[#2563eb]">
                   {contact.value}
                 </p>
-                <div className="mt-8 text-xs font-mono tracking-widest text-white/30 uppercase">
+                <div className="mt-8 text-xs font-mono tracking-widest text-slate-400 uppercase">
                   Hacer clic para contactar
                 </div>
               </motion.a>
@@ -420,25 +423,28 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      <footer className="relative z-10 border-t border-white/10 py-12 md:py-16 bg-black/90">
+      <footer className="relative z-10 border-t border-slate-200 py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
           <div>
-            <div className="font-heading text-3xl md:text-4xl font-bold tracking-tighter mb-4 text-white uppercase">FERGO</div>
-            <div className="flex gap-2 text-xs font-mono text-gray-400">
+            <div className="font-heading text-3xl md:text-4xl font-bold tracking-tighter mb-4 text-[#0f172a] uppercase flex items-center gap-2">
+              FERGO
+              <img src="/images/FERGO_LOGO.png" alt="FERGO Logo" className="w-8 h-8 md:w-12 md:h-12 object-contain drop-shadow-sm" />
+            </div>
+            <div className="flex gap-2 text-xs font-mono text-slate-500">
               <span>
-                created by <a href="https://es.linkedin.com/in/andermnz" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-white/30 underline-offset-4" data-hover="true">@andermnz</a>
+                created by <a href="https://es.linkedin.com/in/andermnz" target="_blank" rel="noopener noreferrer" className="hover:text-[#2563eb] transition-colors underline decoration-slate-300 underline-offset-4" data-hover="true">@andermnz</a>
               </span>
             </div>
           </div>
 
           <div className="flex gap-6 md:gap-8 flex-wrap">
-            <a href="https://es.linkedin.com/in/nagore-f-a53930165" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white font-bold uppercase text-xs tracking-widest transition-colors cursor-pointer" data-hover="true">
+            <a href="https://es.linkedin.com/in/nagore-f-a53930165" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#2563eb] font-bold uppercase text-xs tracking-widest transition-colors cursor-pointer" data-hover="true">
               LinkedIn
             </a>
-            <a href="https://www.comeralia.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white font-bold uppercase text-xs tracking-widest transition-colors cursor-pointer" data-hover="true">
+            <a href="https://www.comeralia.com" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#2563eb] font-bold uppercase text-xs tracking-widest transition-colors cursor-pointer" data-hover="true">
               Comeralia
             </a>
-            <a href="https://ngrfdz.netlify.app" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white font-bold uppercase text-xs tracking-widest transition-colors cursor-pointer" data-hover="true">
+            <a href="https://ngrfdz.netlify.app" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#2563eb] font-bold uppercase text-xs tracking-widest transition-colors cursor-pointer" data-hover="true">
               Porfolio
             </a>
           </div>
@@ -453,19 +459,19 @@ const App: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedProject(null)}
-            className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/50 backdrop-blur-md cursor-auto"
+            className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-md cursor-auto"
           >
             <motion.div
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl bg-[#1a1b3b] border border-white/10 overflow-hidden flex flex-col md:flex-row shadow-2xl shadow-[#4fb7b3]/10 group/modal"
+              className="relative w-full max-w-5xl bg-white border border-slate-200 overflow-hidden flex flex-col md:flex-row shadow-2xl shadow-blue-900/5 group/modal"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/50 text-white hover:bg-white hover:text-black transition-colors"
+                className="absolute top-4 right-4 z-20 p-2 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 transition-colors"
                 data-hover="true"
               >
                 <X className="w-6 h-6" />
@@ -474,7 +480,7 @@ const App: React.FC = () => {
               {/* Navigation Buttons */}
               <button
                 onClick={(e) => { e.stopPropagation(); navigateProject('prev'); }}
-                className="absolute left-4 bottom-4 translate-y-0 md:top-1/2 md:bottom-auto md:-translate-y-1/2 z-20 p-3 rounded-full bg-black/50 text-white hover:bg-white hover:text-black transition-colors border border-white/10 backdrop-blur-sm"
+                className="absolute left-4 bottom-4 translate-y-0 md:top-1/2 md:bottom-auto md:-translate-y-1/2 z-20 p-3 rounded-full bg-white/80 text-slate-700 hover:bg-white hover:text-blue-600 transition-colors border border-slate-200 backdrop-blur-sm"
                 data-hover="true"
                 aria-label="Previous Project"
               >
@@ -483,7 +489,7 @@ const App: React.FC = () => {
 
               <button
                 onClick={(e) => { e.stopPropagation(); navigateProject('next'); }}
-                className="absolute right-4 bottom-4 translate-y-0 md:top-1/2 md:bottom-auto md:-translate-y-1/2 z-20 p-3 rounded-full bg-black/50 text-white hover:bg-white hover:text-black transition-colors border border-white/10 backdrop-blur-sm md:right-8"
+                className="absolute right-4 bottom-4 translate-y-0 md:top-1/2 md:bottom-auto md:-translate-y-1/2 z-20 p-3 rounded-full bg-white/80 text-slate-700 hover:bg-white hover:text-blue-600 transition-colors border border-slate-200 backdrop-blur-sm md:right-8"
                 data-hover="true"
                 aria-label="Next Project"
               >
@@ -504,7 +510,7 @@ const App: React.FC = () => {
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </AnimatePresence>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1b3b] via-transparent to-transparent md:bg-gradient-to-r" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent md:bg-gradient-to-r" />
               </div>
 
               {/* Content Side */}
@@ -515,18 +521,18 @@ const App: React.FC = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 }}
                 >
-                  <div className="flex items-center gap-3 text-[#4fb7b3] mb-4">
+                  <div className="flex items-center gap-3 text-[#2563eb] mb-4">
                     <Globe className="w-4 h-4" />
                     <span className="font-mono text-sm tracking-widest uppercase">{selectedProject.type}</span>
                   </div>
 
-                  <h3 className="text-4xl md:text-6xl font-heading font-bold uppercase leading-none mb-2 text-white">
+                  <h3 className="text-4xl md:text-6xl font-heading font-bold uppercase leading-none mb-2 text-[#0f172a]">
                     {selectedProject.name}
                   </h3>
 
-                  <div className="h-px w-20 bg-white/20 my-6" />
+                  <div className="h-px w-20 bg-slate-200 my-6" />
 
-                  <p className="text-gray-300 leading-relaxed text-lg font-light mb-8">
+                  <p className="text-slate-600 leading-relaxed text-lg font-light mb-8">
                     {selectedProject.description}
                   </p>
 
@@ -534,7 +540,7 @@ const App: React.FC = () => {
                     href={selectedProject.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block border border-[#4fb7b3] px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-[#4fb7b3] hover:text-black transition-all duration-300 text-[#4fb7b3] cursor-pointer"
+                    className="inline-block border border-[#2563eb] px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-[#2563eb] hover:text-white transition-all duration-300 text-[#2563eb] cursor-pointer"
                     data-hover="true"
                   >
                     Visitar Proyecto

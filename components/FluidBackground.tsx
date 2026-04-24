@@ -53,13 +53,13 @@ const StarField = () => {
 
 const FluidBackground: React.FC = () => {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-gradient-to-br from-[#31326f] via-[#28295c] to-[#1f2048]">
+    <div className="fixed inset-0 -z-10 overflow-hidden bg-gradient-to-br from-[#ffffff] via-[#f8fafc] to-[#f1f5f9]">
       
       <StarField />
 
-      {/* Blob 1: Mint - Optimized Blur (60px -> 40px) and Animation Speed */}
+      {/* Blob 1: Modern Royal Blue */}
       <motion.div
-        className="absolute top-[-10%] left-[-10%] w-[90vw] h-[90vw] mix-blend-screen will-change-transform pointer-events-none"
+        className="absolute top-[-10%] left-[-10%] w-[90vw] h-[90vw] mix-blend-multiply will-change-transform pointer-events-none"
         animate={{
           x: [0, 50, -25, 0],
           y: [0, -25, 25, 0],
@@ -70,14 +70,14 @@ const FluidBackground: React.FC = () => {
           ease: "linear"
         }}
         style={{ 
-          background: "radial-gradient(circle at center, rgba(168, 251, 211, 0.4) 0%, transparent 50%)",
+          background: "radial-gradient(circle at center, rgba(37, 99, 235, 0.15) 0%, transparent 50%)",
           transform: 'translateZ(0)' 
         }}
       />
 
-      {/* Blob 2: Teal */}
+      {/* Blob 2: Light Sky Blue */}
       <motion.div
-        className="absolute top-[20%] right-[-20%] w-[100vw] h-[80vw] mix-blend-screen will-change-transform pointer-events-none"
+        className="absolute top-[20%] right-[-20%] w-[100vw] h-[80vw] mix-blend-multiply will-change-transform pointer-events-none"
         animate={{
           x: [0, -50, 25, 0],
           y: [0, 50, -25, 0],
@@ -88,14 +88,14 @@ const FluidBackground: React.FC = () => {
           ease: "easeInOut"
         }}
         style={{ 
-          background: "radial-gradient(circle at center, rgba(79, 183, 179, 0.3) 0%, transparent 50%)",
+          background: "radial-gradient(circle at center, rgba(56, 189, 248, 0.15) 0%, transparent 50%)",
           transform: 'translateZ(0)' 
         }}
       />
 
-      {/* Blob 3: Periwinkle */}
+      {/* Blob 3: Deep Tech Blue */}
       <motion.div
-        className="absolute bottom-[-20%] left-[20%] w-[80vw] h-[80vw] mix-blend-screen will-change-transform pointer-events-none"
+        className="absolute bottom-[-20%] left-[20%] w-[80vw] h-[80vw] mix-blend-multiply will-change-transform pointer-events-none"
         animate={{
           x: [0, 75, -75, 0],
           y: [0, -50, 50, 0],
@@ -106,16 +106,16 @@ const FluidBackground: React.FC = () => {
           ease: "easeInOut"
         }}
         style={{ 
-          background: "radial-gradient(circle at center, rgba(99, 122, 185, 0.3) 0%, transparent 50%)",
+          background: "radial-gradient(circle at center, rgba(30, 58, 138, 0.1) 0%, transparent 50%)",
           transform: 'translateZ(0)' 
         }}
       />
 
       {/* Static Grain Overlay */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply pointer-events-none"></div>
       
       {/* Vignette */}
-      <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/10 to-black/60 pointer-events-none" />
+      <div className="absolute inset-0 bg-radial-gradient from-transparent via-white/30 to-white/80 pointer-events-none" />
     </div>
   );
 };

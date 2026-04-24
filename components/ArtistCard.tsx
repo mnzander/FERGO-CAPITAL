@@ -17,7 +17,7 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
   return (
     <motion.div
-      className="group relative h-[400px] md:h-[500px] w-full overflow-hidden border-b md:border-r border-white/10 bg-black cursor-pointer"
+      className="group relative h-[400px] md:h-[500px] w-full overflow-hidden border-b md:border-r border-slate-200 bg-white cursor-pointer"
       initial="rest"
       whileHover="hover"
       whileTap="hover"
@@ -37,13 +37,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
           }}
           transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
         />
-        <div className="absolute inset-0 bg-black/30 group-hover:bg-[#4fb7b3]/20 transition-colors duration-500" />
+        <div className="absolute inset-0 bg-white/20 group-hover:bg-[#2563eb]/20 transition-colors duration-500" />
       </div>
 
       {/* Overlay Info */}
       <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between pointer-events-none">
         <div className="flex justify-between items-start">
-           <span className="text-xs font-mono border border-white/30 px-3 py-1 rounded-full backdrop-blur-md text-white">
+           <span className="text-xs font-mono border border-slate-200 bg-white/80 px-3 py-1 rounded-full backdrop-blur-md text-[#0f172a]">
              {project.id === '1' ? 'CORPORATE' : project.id === '2' ? 'SOCIAL' : 'PORTFOLIO'}
            </span>
            <motion.div
@@ -51,7 +51,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
                rest: { opacity: 0, x: 20, y: -20 },
                hover: { opacity: 1, x: 0, y: 0 }
              }}
-             className="bg-[#4fb7b3] text-black rounded-full p-2"
+             className="bg-[#2563eb] text-white rounded-full p-2"
            >
              <ExternalLink className="w-6 h-6" />
            </motion.div>
@@ -71,7 +71,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
             </motion.h3>
           </div>
           <motion.p 
-            className="text-sm font-medium uppercase tracking-widest text-[#a8fbd3] mt-2"
+            className="text-sm font-medium uppercase tracking-widest text-[#2563eb] mt-2 drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]"
             variants={{
               rest: { opacity: 0, y: 10 },
               hover: { opacity: 1, y: 0 }
